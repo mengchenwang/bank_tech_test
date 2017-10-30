@@ -2,7 +2,7 @@ require_relative 'account'
 
 class Enquiry
 
-  STATEMENT_HEADER = {date: "Date", credit: "Credit", debit: "Debit", balance: "Balance"}
+  STATEMENT_HEADER = { date: "Date", credit: "Credit", debit: "Debit", balance: "Balance" }
 
   def print_statement(account)
     statement = (account.transaction_record << STATEMENT_HEADER)

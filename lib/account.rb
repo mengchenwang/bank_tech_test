@@ -18,6 +18,6 @@ class Account
 
   def update_transaction_record(credit, debit)
     date = Time.now.strftime("%d/%m/%Y")
-    @transaction_record << {date: date, credit: credit, debit: debit, balance: @balance}
+    @transaction_record << { date: date, credit: credit, debit: debit, balance: @balance }
   end
 end

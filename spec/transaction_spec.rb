@@ -21,7 +21,7 @@ describe Transaction do
     end
 
     it 'raises an error when the deposit amount equals or less than 0' do
-      expect{transaction.deposit(account, 0)}.to raise_error("deposit amount has to be greater than 0")
+      expect { transaction.deposit(account, 0) }.to raise_error("deposit amount has to be greater than 0")
     end
   end
 
@@ -37,7 +37,7 @@ describe Transaction do
     end
 
     it 'raises an error when the deposit amount equals or less than 0' do
-      expect{transaction.withdraw(account, 0)}.to raise_error("withdrawal amount has to be greater than 0")
+      expect { transaction.withdraw(account, 0) }.to raise_error("withdrawal amount has to be greater than 0")
     end
   end
 end
