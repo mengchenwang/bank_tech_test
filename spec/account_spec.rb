@@ -21,8 +21,7 @@ describe Account do
 
   describe '#update_transaction_record' do
     it 'add [date, 100, nil, 100] to the transaction record' do
-      date = Time.now.strftime("%d/%m/%Y")
-      expect{batman.update_transaction_record(100, nil)}.to change{batman.transaction_record}.to([["#{date}", 100, nil, 0]])
+      expect{batman.update_transaction_record(100, nil)}.to change{batman.transaction_record}.to([{date: Time.now.strftime("%d/%m/%Y"), credit: 100, debit: nil, balance: 0}])
     end
   end
 end
