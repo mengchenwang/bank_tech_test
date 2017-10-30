@@ -17,11 +17,17 @@ describe Account do
     it 'add 100 to the balance' do
       expect{batman.update_balance(100)}.to change{batman.balance}.by(100)
     end
+
+    it 'raises an error when balance is lower than minimum balance' do
+      error = "balance too low - please change your transaction amount"
+      expect{batman.update_balance(-100)}.to raise_error(error)
+    end
   end
 
   describe '#update_transaction_record' do
     it 'add [date, 100, nil, 100] to the transaction record' do
-      expect{batman.update_transaction_record(100, nil)}.to change{batman.transaction_record}.to([{date: Time.now.strftime("%d/%m/%Y"), credit: 100, debit: nil, balance: 0}])
+      record = [{date: Time.now.strftime("%d/%m/%Y"), credit: 100, debit: nil, balance: 0}]
+      expect{batman.update_transaction_record(100, nil)}.to change{batman.transaction_record}.to(record)
     end
   end
 end

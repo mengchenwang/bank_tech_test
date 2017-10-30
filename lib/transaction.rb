@@ -10,7 +10,6 @@ class Transaction
 
   def withdraw(account, amount)
     raise "withdrawal amount has to be greater than 0" if amount <= 0
-    raise "balance too low - please change your withdrawal amount" if (account.balance - amount) <= 0
     account.update_balance(-amount)
     account.update_transaction_record(nil, amount)
   end

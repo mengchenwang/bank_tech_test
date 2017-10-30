@@ -1,11 +1,11 @@
 require_relative 'account'
 
-class Statement
+class Enquiry
 
-  HEADER = {date: "Date", credit: "Credit", debit: "Debit", balance: "Balance"}
+  STATEMENT_HEADER = {date: "Date", credit: "Credit", debit: "Debit", balance: "Balance"}
 
   def print_statement(account)
-    statement = (account.transaction_record << HEADER)
+    statement = (account.transaction_record << STATEMENT_HEADER)
     statement.reverse.each do |transaction|
       puts "#{transaction[:date]} || #{transaction[:credit]} || " +
            "#{transaction[:debit]} || #{transaction[:balance]}"

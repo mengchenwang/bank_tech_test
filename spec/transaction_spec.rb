@@ -39,10 +39,5 @@ describe Transaction do
     it 'raises an error when the deposit amount equals or less than 0' do
       expect{transaction.withdraw(account, 0)}.to raise_error("withdrawal amount has to be greater than 0")
     end
-
-    it 'raises an error when the withdrawal would leave a minus balance' do
-      allow(account).to receive(:balance).and_return(99)
-      expect{transaction.withdraw(account, 100)}.to raise_error("balance too low - please change your withdrawal amount")
-    end
   end
 end

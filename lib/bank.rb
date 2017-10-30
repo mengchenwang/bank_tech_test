@@ -1,22 +1,25 @@
 require_relative 'transaction'
-require_relative 'statement'
+require_relative 'enquiry'
 
 class Bank
+
+  attr_reader :transaction, :enquiry
+
   def initialize(transaction = Transaction.new,
-                 statement = Statement.new)
+                 enquiry = Enquiry.new)
     @transaction = transaction
-    @statement = statement
+    @enquiry = enquiry
   end
 
-  def deposit(account, amopunt)
-    @transaction.deposit(account, amopunt)
+  def deposit(account, amount)
+    @transaction.deposit(account, amount)
   end
 
-  def withdraw(account, amopunt)
-    @transaction.withdraw(account, amopunt)
+  def withdraw(account, amount)
+    @transaction.withdraw(account, amount)
   end
 
-  def statement(account)
-    @statement.print_statement(account)
+  def print_statement(account)
+    @enquiry.print_statement(account)
   end
 end

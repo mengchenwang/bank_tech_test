@@ -1,6 +1,7 @@
 class Account
 
   DEFAULT_OPENNING_BALANCE = 0
+  MINIMUM_BALANCE = 0
 
   attr_reader :balance, :transaction_record
 
@@ -10,6 +11,8 @@ class Account
   end
 
   def update_balance(amount)
+    raise "balance too low - please change your transaction amount" if
+          (@balance + amount) <= MINIMUM_BALANCE
     @balance += amount
   end
 
